@@ -1,0 +1,10 @@
+language: go
+
+go:
+   - 1.7
+
+install:
+- go get golang.org/x/tools/cmd/cover
+- export PATH=$PATH:$HOME/gopath/bin
+- go install github.com/vrecan/poolShark/./...
+script: go test ./... -cover --race
