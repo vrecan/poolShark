@@ -1,13 +1,13 @@
 package pool
 
-//BytePool is a simple pool of []byte
+//ByteChanPool is a simple pool of []byte using a channel
 type ByteChanPool struct {
 	sliceSize int
 	poolSize  int
 	pool      chan []byte
 }
 
-//NewBytePool...
+//NewByteChanPool...
 func NewByteChanPool(poolSize, sliceSize int) *ByteChanPool {
 	return &ByteChanPool{
 		sliceSize: sliceSize,
@@ -41,6 +41,7 @@ func (b *ByteChanPool) Put(value []byte) {
 	return
 }
 
+//Size...
 func (b ByteChanPool) Size() int {
 	return len(b.pool)
 }
