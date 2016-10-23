@@ -5,7 +5,7 @@ Poolshark is a simple library that allows you to reduce the number of allocation
 
 # Why?
 When profiling my applications I have found that sync.Pool frequently was causing lots of blocking. 
-It was also still creating high volumes of garbage for the GC. Doing a simple change to use a [][]byte with a mutex immediately reduced my cpu usage by 1/2 and improved overall through put by 25% but in micro benchmarks was slower then sync.pool when used from multiple threads. Finally I implemented a version just using a channel and found that it was faster then both implementations in all cases.
+It was also still creating high volumes of garbage for the GC. Doing a simple change to use a [][]byte with a mutex immediately reduced my cpu usage by 1/2 and improved overall throughput by 25% but in micro benchmarks was slower then sync.pool when used from multiple threads. Finally I implemented a version just using a channel and found that it was faster then both implementations in all cases.
 
 # How do I use it?
 
