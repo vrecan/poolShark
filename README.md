@@ -1,4 +1,4 @@
-# PoolShark
+# PoolShark [![Build Status](https://travis-ci.org/vrecan/poolShark.svg?branch=master)](https://travis-ci.org/vrecan/poolShark)
 Poolshark is a simple library that allows you to reduce the number of allocations you do for byte slices similar to sync.Pool.
 
 ![SHARK](poolshark.jpg?raw=true "Pool Shark")
