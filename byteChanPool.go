@@ -20,9 +20,11 @@ func NewByteChanPool(poolSize, sliceSize int) *ByteChanPool {
 func (b *ByteChanPool) Get() (value []byte) {
 	select {
 	case value = <-b.pool:
+		//this will be optimied into a memclr call by the compiler
 		for i, _ := range value {
 			value[i] = 0
 		}
+		//resize the slice, this will panic if the slice doesn't have the capacity
 		value = value[:b.sliceSize]
 		return value
 	default:
